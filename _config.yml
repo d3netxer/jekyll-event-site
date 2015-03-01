@@ -1,4 +1,4 @@
-baseurl: ''
+baseurl: '/jekyll-event-site'
 permalink: pretty
 exclude: [src, CNAME]
 markdown: rdiscount
