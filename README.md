@@ -1,1 +1,1 @@
-# jekyll-event-site
+# MapOff event site
