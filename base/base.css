@@ -1388,7 +1388,7 @@ a > .rcon:after,
 ------------------------------------------------------- */
 .box {
   margin-bottom:20px;
-  border:1px solid rgba(0,0,0,0.10);
+  border:0px solid rgba(0,0,0,0.10);
   }
   .box:last-child { margin-bottom: 0;}
   .box figure,
@@ -1900,6 +1900,10 @@ Details: http://www.positioniseverything.net/easyclearing.html
 .space-bottom1                { margin-bottom:10px; }
 .space-bottom2, .space-bottom { margin-bottom:20px; }
 .space-bottom4                { margin-bottom:40px; }
+.space-bottom8                { margin-bottom:60px; }
+.space-bottom6                { margin-bottom:80px; }
+.space-bottom10               { margin-bottom:100px; }
+.space-bottom12               { margin-bottom:120px; }
 .hide-tablet, .hide-mobile    { display:block; }
 .show-tablet, .show-mobile    { display:none; }
 .show-mobile                  { display:none; }

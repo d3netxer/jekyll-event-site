@@ -1,8 +1,8 @@
-baseurl: '/jekyll-event-site'
+baseurl: '/mapoff'
 permalink: pretty
 exclude: [src, CNAME]
 markdown: rdiscount
-title: Jekyll Event
-hashtag: jekyll-event
-email: jekyll-event@email.org
-twitter: jekyll-event-account
+title: MapOff
+hashtag: MapOff
+email: mapgive@state.gov
+twitter: MapOff

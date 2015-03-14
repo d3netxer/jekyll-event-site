@@ -7,6 +7,24 @@
 .fill-brown { background-color:#d7a64a; }
 .fill-green { background-color:#8cc250; }
 .fill-red { background-color:#d73f3f; }
+.fill-gmu-green { background-color:#005E2E; }
+.fill-gmu-gold { color:#F1AA00; }
+.fill-gw-blue { background-color:#09567F; }
+.fill-gw-gold { color:#C7B18D; }
+
+.holder {
+    text-align: center;
+    margin: auto;
+}
+
+.box {
+    padding: 20px;
+    margin: 0px;
+    display: inline-block;
+}
+.after-box {
+  clear: left;
+}
 
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Kreon', serif;
@@ -88,7 +106,7 @@ a:hover { color:#68c7dd; }
   }
 .site-navigation a,
 .site-navigation a:hover {
-  color:#fff;
+  color:#F1AA00;
   }
 .site-navigation a.strong:hover {
   border-bottom:3px solid #fff;

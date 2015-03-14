@@ -28,6 +28,8 @@
   <meta property='og:type' content='website' />
   <meta name='twitter:card' content='summary_large_image' />
 
+
+
   <title>{% if page.url == "/"  %}{% else %}{{page.title}} | {% endif %}{{ site.title }}</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
  <!--  <link rel='shortcut icon' href='{{site.baseurl}}/img/favicon.ico' type='image/x-icon' /> -->
@@ -40,19 +42,44 @@
 </head>
 <body class='{% if page.url == "/index.html" %}front{% endif %}'>
 
-<nav class='pad2 fill-red site-navigation center space'>
+<nav class='pad2 fill-gmu-green site-navigation center space'>
   <a class='strong {% if page.url == "{{site.baseurl}}/index.html" or page.url == "{{site.baseurl}}/" %}active{% endif %}' href='{{site.baseurl}}/'>Home</a>
-  <a class='strong {% if page.url contains "page1" %}active{% endif %}' href='{{site.baseurl}}/page1/'>Page 1</a>
-  <a class='strong {% if page.url contains "page2" %}active{% endif %}' href='{{site.baseurl}}/page2/'>Page 2</a>
+  <a class='strong {% if page.url contains "page1" %}active{% endif %}' href='{{site.baseurl}}/page1/'>METRICS</a>
   <a href='https://twitter.com/search?q=%23{{site.hashtag}}&src=typd' target='_blank' class='hide-mobile icon twitter inline small strong dark'>#{{site.hashtag}}</a>
 </nav>
 
 
-<header class='clearfix splash center pad4y'>
+<div class='col12 center space-bottom4 clearfix' style='padding-top:20px'>
+<h2>Mapping Projects</h2>
+
+<!-- http://jsfiddle.net/vrcQp/6/ -->
+
+<div class="holder">
+
+<div class='clearfix box '>
   <a href='{{site.baseurl}}' class='block'>
-    <img id='logo' src='{{site.baseurl}}/img/logo.png' alt='HOT Summit' />
+    <img id='logo' src='{{site.baseurl}}/img/karangetang_button.png' alt='HOT Summit' />
   </a>
-</header>
+</div>
+<div class='clearfix box '>
+  <a href='{{site.baseurl}}' class='block'>
+    <img id='logo' src='{{site.baseurl}}/img/canaan_button.png' alt='HOT Summit' />
+  </a>
+</div>
+<div class='clearfix box '>
+  <a href='{{site.baseurl}}' class='block'>
+    <img id='logo' src='{{site.baseurl}}/img/liberia_button.png' alt='HOT Summit' />
+  </a>
+</div>
+<div class='clearfix box '>
+  <a class='block'>
+    <img id='logo' src='{{site.baseurl}}/img/khulna_button.png' alt='HOT Summit' />
+  </a>
+</div>
+
+</div>
+
+</div>
 
 {{content}}
 
@@ -67,8 +94,15 @@
       <h2 class='space-bottom1'>Participating Groups</h2>
 
       <nav class='space-bottom2'>
-        <a href='http://group1.org/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/group1_logo.png' alt='Group1' /></a>
-        <a href='http://group2.org/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/group2_logo.png' alt='Group2' /></a>
+        <a href='http://mapgive.state.gov/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/mapgive-logo.png' alt='Group1' /></a>
+        <a href='http://missingmaps.org/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/missing-maps-logo.png' alt='Group2' /></a>
+        <a href='http://www.nationalgeographic.com/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/National_Geographic_logo.png' alt='Group2' /></a>
+        <a href='http://www.nvcc.edu/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/nova-logo.png' alt='Group2' /></a>
+        <a href='http://www.usaid.gov/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/usaid-logo.png' alt='Group2' /></a>
+        <a href='http://www.gw.edu/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/gw_mascot.png' alt='Group2' /></a>
+         <a href='http://www.gmu.edu/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/gmu_mascot.png' alt='Group2' /></a>
+        <a href='http://asprspotomac.org/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/asprs-potomac-region-logo.png' alt='Group2' /></a>
+         <a href='http://www.texastech.com/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/texas-tech-logo.png' alt='Group2' /></a>
       </nav>
 
       <h3>Get in touch to get involved</h3>
@@ -79,14 +113,15 @@
 
 <section class='fill-white pad2y center'>
   <div class='limiter'>
-    <p><strong>Interested in participating?</strong> Email <a href='mailto:{{site.email}}'>{{site.email}}</a> to learn more.</p>
+    <p><strong>Interested in participating?</strong> <a href='https://www.eventbrite.com/e/map-off-george-mason-university-tickets-15853358823'>Sign up now</a>! </p>
   </div>
 </section>
 <footer class='col12 center fill-blue dark'>
-  <div class='fill-darken3 pad2y col12'>
+  <div class='fill-darken2 pad2y col12'>
     <div class='limiter'>
       <p class='small hide-mobile'>
-        <a href="{{site.baseurl}}/codeofconduct/">Code of Conduct</a> | <a href='{{site.baseurl}}'>{{site.title}}</a> | <a href='https://twitter.com/search?q=%23{{site.hashtag}}&src=typd' target='_blank'>#{{site.hashtag}}</a><!-- | Photo credits: Photo Credits-->
+
+       <!--  <a href="{{site.baseurl}}/codeofconduct/">Code of Conduct</a> |--> <a href='{{site.baseurl}}'>{{site.title}}</a> | <a href='https://twitter.com/search?q=%23{{site.hashtag}}&src=typd' target='_blank'>#{{site.hashtag}}</a><!--| Photo credits: Photo Credits-->
     </div>
   </div>
 </footer>
