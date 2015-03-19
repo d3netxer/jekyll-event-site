@@ -34,7 +34,7 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
  <!--  <link rel='shortcut icon' href='{{site.baseurl}}/img/favicon.ico' type='image/x-icon' /> -->
   <link href='http://fonts.googleapis.com/css?family=Kreon:400,700' rel='stylesheet' type='text/css'>
-	<link href='{{site.baseurl}}/base/base.css' rel='stylesheet' />
+  <link href='{{site.baseurl}}/base/base.css' rel='stylesheet' />
   <link href='{{site.baseurl}}/site.css' rel='stylesheet' />
   <link href='//api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
   <script src='//api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
@@ -52,49 +52,40 @@
 
 
 <div class='col12 center space-bottom4 clearfix' style='padding-top:20px'>
-<h2>Mapping Projects</h2>
+
 
 <!-- http://jsfiddle.net/vrcQp/6/ -->
 
-<div class="holder">
+<div class="holder"></div>
 
-<!--
-<div class='clearfix box '>
-  <a href='http://tasks.hotosm.org/project/908' class='block'>
-    <img id='logo' src='{{site.baseurl}}/img/karangetang_button.png' alt='HOT Summit' />
-  </a>
 </div>
-<div class='clearfix box '>
-  <a href='http://tasks.hotosm.org/project/915' class='block'>
-    <img id='logo' src='{{site.baseurl}}/img/liberia_button.png' alt='HOT Summit' />
-  </a>
-</div>
-<div class='clearfix box '>
-  <a href='http://tasks.hotosm.org/project/870' class='block'>
-    <img id='logo' src='{{site.baseurl}}/img/canaan_button.png' alt='HOT Summit' />
-  </a>
-</div>
-<div class='clearfix box '>
-  <a href='http://tasks.hotosm.org/project/698#task/' class='block'>
-    <img id='logo' src='{{site.baseurl}}/img/bangladesh_button.png' alt='HOT Summit' />
-  </a>
--->
 
-{% for post in site.categories['project'] %}
-      <div class='clearfix box '>
-        <a href='{{ site.baseurl }}{{ post.url }}' class='block'>
-          <img id='logo' src='{{site.baseurl}}{{ post.image }}' alt='MapOff' />
-        </a>
-      </div>
+</div>
+
+<div class='col10 margin1'>
+
+<h2>{{ page.title }}</h2>
+
+{{content}}
+
+<br>
+
+
+<a type="button" class="btn btn-primary" href='{{page.tracing_guide}}'>{{page.title}} Tracing Guide</a>
+
+<br><br><br>
+
+{% for item in page.project_id %}
+
+  {% for val in item %}
+
+    <a type="button" class="btn btn-primary" href='http://tasks.hotosm.org/project/{{ val[1] }}'>{{ val[0] }} Tasking Manager Link</a>
+
+  {% endfor %}
+
 {% endfor %}
 
 </div>
-
-</div>
-
-</div>
-
-{{content}}
 
 <div class='pad2x show-mobile'>
   <a href='#sponsors' class='button block'>Supporters</a>
@@ -144,3 +135,4 @@
 
 </body>
 </html>
+
