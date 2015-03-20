@@ -56,6 +56,10 @@ textarea {
   -webkit-font-smoothing:antialiased;
   }
 
+.logo {
+    width: 105px;
+}
+
 body { background:#fff; }
 .dark { color:#fff; }
 
@@ -479,7 +483,8 @@ button:disabled:focus,
 
 img {
   max-width:100%;
-  vertical-align:top;
+  vertical-align:middle;
+  height:100%;
   }
   .center img,
   img.center { margin-left:auto; margin-right:auto; }

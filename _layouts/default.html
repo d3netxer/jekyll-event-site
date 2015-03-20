@@ -28,8 +28,6 @@
   <meta property='og:type' content='website' />
   <meta name='twitter:card' content='summary_large_image' />
 
-
-
   <title>{% if page.url == "/"  %}{% else %}{{page.title}} | {% endif %}{{ site.title }}</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
  <!--  <link rel='shortcut icon' href='{{site.baseurl}}/img/favicon.ico' type='image/x-icon' /> -->
@@ -40,6 +38,7 @@
   <script src='//api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <script src='{{site.baseurl}}/site.js'></script>
 </head>
+
 <body class='{% if page.url == "/index.html" %}front{% endif %}'>
 
 <nav class='pad2 fill-gmu-green site-navigation center space'>
@@ -107,7 +106,7 @@
       <h2 class='space-bottom1'>Participating Groups</h2>
 
       <nav class='space-bottom2'>
-        <a href='https://hiu.state.gov/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/hiu_logo.jpg' width="105" alt='Group1' /></a>
+        <a href='https://hiu.state.gov/' target='_blank'><img class='logo' src='{{site.baseurl}}/img/hiu_logo.png' alt='Group1' /> </a>
         <a href='http://mapgive.state.gov/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/mapgive-logo.png' alt='Group1' /></a>
         <a href='http://missingmaps.org/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/missing-maps-logo.png' alt='Group2' /></a>
         <a href='http://www.nationalgeographic.com/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/national_geographic_logo.png' alt='Group2' /></a>
