@@ -17,6 +17,13 @@
     margin: auto;
 }
 
+.leftside {
+    text-align: left;
+    float:left;
+    width:400px;
+    padding: 10px 25px 10px 0px;
+}
+
 .box {
     padding: 20px;
     margin: 0px;
