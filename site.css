@@ -21,7 +21,20 @@
     text-align: left;
     float:left;
     width:400px;
-    padding: 10px 25px 10px 0px;
+    padding: 10px 25px 20px 0px;
+}
+
+iframe {
+  margin-top: 15px;
+  margin-left: 25px;
+  margin-bottom: 35px;
+
+
+  -moz-box-shadow: 4px 4px 14px #000;
+  -webkit-box-shadow: 4px 4px 14px #000;
+  box-shadow: 4px 4px 14px #000;
+
+
 }
 
 .box {
