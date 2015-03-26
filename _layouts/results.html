@@ -44,14 +44,26 @@
 
 <nav class='pad2 fill-gmu-green site-navigation center space'>
   <a class='strong {% if page.url == "{{site.baseurl}}/index.html" or page.url == "{{site.baseurl}}/" %}active{% endif %}' href='{{site.baseurl}}/'>Home</a>
-  <a class='strong {% if page.url contains "page1" %}active{% endif %}' href='{{site.baseurl}}/metrics/'>METRICS</a>
+  <a class='strong {% if page.url contains "page1" %}active{% endif %}' href='{{site.baseurl}}/results/'>RESULTS</a>
   <a href='https://twitter.com/search?q=%23{{site.hashtag}}&src=typd' target='_blank' class='hide-mobile icon twitter inline small strong dark'>#{{site.hashtag}}</a>
 </nav>
 
 
 
-
+<!--
 {{content}}
+-->
+
+<div class='col12 center ' style='padding-top:6px'><h3>Page Under Construction...</h3></div>
+<div class='col12 center ' style='padding-top:6px'>
+<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.html" width="80%" height="450" scrolling="no" style="float:none"></iframe>
+</div>
+
+
+<iframe src="{{ site.baseurl }}/result/nyamira_buildings_d3_chart.html" width="30%" height="350" scrolling="no" id="iframe_left" style="float:left"></iframe>
+<iframe src="{{ site.baseurl }}/result/nyamira_roads_d3_chart.html" width="30%" height="350" scrolling="no" id="iframe_center" style="float:none"></iframe>
+<iframe src="{{ site.baseurl }}/result/nyamira_roads_d3_chart.html" width="30%" height="350" scrolling="no" id="iframe_right" style="float:none"></iframe>
+
 
 <div class='pad2x show-mobile'>
   <a href='#sponsors' class='button block'>Supporters</a>
@@ -64,11 +76,13 @@
       <h2 class='space-bottom1'>Participating Groups</h2>
 
       <nav class='space-bottom2'>
+        <a href='https://hiu.state.gov/' target='_blank'><img class='logo' src='{{site.baseurl}}/img/hiu_logo.png' alt='Group1' /> </a>
         <a href='http://mapgive.state.gov/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/mapgive-logo.png' alt='Group1' /></a>
         <a href='http://missingmaps.org/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/missing-maps-logo.png' alt='Group2' /></a>
-        <a href='http://www.nationalgeographic.com/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/National_Geographic_logo.png' alt='Group2' /></a>
+        <a href='http://www.nationalgeographic.com/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/national_geographic_logo.png' alt='Group2' /></a>
         <a href='http://www.nvcc.edu/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/nova-logo.png' alt='Group2' /></a>
         <a href='http://www.usaid.gov/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/usaid-logo.png' alt='Group2' /></a>
+        <br><br>
         <a href='http://www.gw.edu/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/gw_mascot.png' alt='Group2' /></a>
          <a href='http://www.gmu.edu/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/gmu_mascot.png' alt='Group2' /></a>
         <a href='http://asprspotomac.org/' target='_blank'><img class='participating' src='{{site.baseurl}}/img/asprs-potomac-region-logo.png' alt='Group2' /></a>
@@ -80,6 +94,7 @@
     </div>
   </div>
 </section>
+
 
 <section class='fill-white pad2y center'>
   <div class='limiter'>
