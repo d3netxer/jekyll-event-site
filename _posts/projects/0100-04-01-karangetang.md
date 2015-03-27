@@ -7,7 +7,7 @@ permalink: '/project/karangetang/'
 tags: [summit]
 category: project
 image: '/img/karangetang_button.png'
-tracing_guide: http://hotosm.github.io/tracing-guides/guide/Karangetang.html
+tracing_guide: http://hotosm.github.io/tracing-guides/guide/Indo-Volcanoes.html
 project_id: 
   - Karangetang: 908
   - Kelud: 425
