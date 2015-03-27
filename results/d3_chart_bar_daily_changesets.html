@@ -30,7 +30,7 @@ body {
 div.tooltip {   
   position: absolute;           
   text-align: center;           
-  width: 80px;                  
+  width: 100px;                  
   height: 55px;                 
   padding: 4px;             
   font: 16px sans-serif;  
@@ -71,16 +71,9 @@ div.tooltip {
 <script>
 
 //I increased the bottom margin a little bit because the x label is tied to it; so I could lower the x label a little bit
-var margin = {top: 50, right: 50, bottom: 60, left: 90},
-    width = 550 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-    
-    
-d3.select(window).on('resize', resize); 
-
-function resize() {
-	console.log('resizing');
-}
+var margin = {top: 50, right: 20, bottom: 60, left: 90},
+    width = 1200 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 var x = d3.time.scale()
     .range([0, width]);
@@ -90,62 +83,59 @@ var y = d3.scale.linear()
 
 var xAxis = d3.svg.axis()
     .scale(x)
-	.ticks(d3.time.hours,24)
-	//makes the xAxis ticks a little longer than the xMinorAxis ticks
+	  .ticks(d3.time.week,2)
     .tickSize(10)
     .orient("bottom");
 
+/*
 var xMinorAxis = d3.svg.axis()
     .scale(x)
 	.ticks(d3.time.hours,12)
     .orient("bottom");
+*/
 
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left");
 
+/*
 var line = d3.svg.line()
     .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.count); });
+    .y(function(d) { return y(d.total_km); });
+*/
 
+var div = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+
+
+//format for tooltip
+//https://github.com/mbostock/d3/wiki/Time-Formatting
+//var formatTime = d3.time.format("%e %b");
+var formatTime = d3.time.format("%e %b");
+var formatCount = d3.format(",");
 
 /*
-older code before responsive design
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 */
 
-//responsive svg: http://stackoverflow.com/questions/16265123/resize-svg-when-window-is-resized-in-d3-js
 var svg = d3.select("body").append("div")
    .classed("svg-container", true) //container class to make it responsive
    .append("svg")
    //responsive SVG needs these 2 attributes and no width and height attr
    .attr("preserveAspectRatio", "xMinYMin meet")
    //need to play around with last two viewBox values to find the right default
-   .attr("viewBox", "0 0 550 500")
+   .attr("viewBox", "0 0 650 600")
    //class to make it responsive
    .classed("svg-content-responsive", true)
    .append("g")
    //adds the margins to make enough room for axis, title, and labels
-   .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); 
-   
-   
-//had to mode tooltip code below var svg code to make sure it was above other elements
-var div = d3.select("body").append("div")   
-    .attr("class", "tooltip")               
-    .style("opacity", 0);
-    
-//The format in the CSV, which d3 will read
-var parseDate = d3.time.format("%Y-%m-%d %X");
-
-//format for tooltip
-//https://github.com/mbostock/d3/wiki/Time-Formatting
-//var formatTime = d3.time.format("%e %b");
-var formatTime = d3.time.format("%e %b %-I:%M %p");
-var formatCount = d3.format(",");
+   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // function for the y grid lines
 function make_y_axis() {
@@ -155,21 +145,26 @@ function make_y_axis() {
       //.ticks(5)
 }
 
+//The format in the CSV, which d3 will read
+var parseDate = d3.time.format("%Y-%m-%d");
+
 //reading in CSV which contains data
-d3.csv("../osmgeoweek_nyamira_basic_osm_buildings.csv", function(error, data) {
+//https://github.com/mbostock/d3/wiki/CSV
+d3.csv("../mapgive-changeset-daily.csv", function(error, data) {
   data.forEach(function(d) {
     //console.log(d.date_time)
-    d.date = parseDate.parse(d.date_time);
-	console.log(d.date);
-    d.count = +d.count;
-    console.log(d.count);
+    d.date = parseDate.parse(d.date);
+	  //console.log(d.date);
+    //the + operator in javascript coerces strings to numbers 
+    d.total_km = +d.daily;
+    //console.log(d.total_km);
   });
 
   //using imported data to define extent of x and y domains
   x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain(d3.extent(data, function(d) { return d.count; }));
+  y.domain(d3.extent(data, function(d) { return d.total_km; }));
 
-// Draw the y Grid lines
+  // Draw the y Grid lines
 	svg.append("g")            
 		.attr("class", "grid")
 		.call(make_y_axis()
@@ -177,68 +172,71 @@ d3.csv("../osmgeoweek_nyamira_basic_osm_buildings.csv", function(error, data) {
 			.tickFormat("")
 		)
   
+  /*
   svg.append("path")
       .datum(data)
       .attr("class", "line")
       .attr("d", line);
+  */
 
-//taken from http://bl.ocks.org/mbostock/3887118
-//and http://www.d3noob.org/2013/01/change-line-chart-into-scatter-plot.html
-//creating a group(g) and will append a circle and 2 lines inside each group
-var g = svg.selectAll()
-        .data(data).enter().append("g");
+  //taken from http://bl.ocks.org/mbostock/3887118
+  //and http://www.d3noob.org/2013/01/change-line-chart-into-scatter-plot.html
+  //appending a group(g) to each data element and will append a rect(bar) and 1 line inside each group
+  var g = svg.selectAll().data(data).enter().append("g");
 
-   //The markers on the line
+  //each bar
+  g.append("rect")
+          .style("fill", "steelblue")
+          .attr("x", function(d) { return x(d.date); })
+          .attr("width", 4)
+          .attr("y", function(d) { return y(d.total_km); })
+          .attr("height", function(d) { return height - y(d.total_km); });
+
+  //The markers on the top of the bar
+  /*
 	 g.append("circle")
          //circle radius is increased
         .attr("r", 4.5)
         .attr("cx", function(d) { return x(d.date); })
-        .attr("cy", function(d) { return y(d.count); });
-        
-    //Invisible circles to make the actual hover area larger
-	 g.append("circle")
-         //circle radius is increased
-        .attr("class", "invisible")
-        .style("opacity", 0)
-        .attr("r", 10)
-        .attr("cx", function(d) { return x(d.date); })
-        .attr("cy", function(d) { return y(d.count); });
+        .attr("cy", function(d) { return y(d.total_km); });
+   */
 
-   
-   //The horizontal dashed line that appears when a circle marker is moused over
+   //The horizontal dashed line that appears when a bar is moused over
 	 g.append("line")
         .attr("class", "x")
         .attr("id", "dashedLine")
         .style("stroke", "steelblue")
+        .style("stroke-dasharray", "3,3")
         .style("stroke-width", "2px")
-        .style("stroke-dasharray", "10,5")
         .style("opacity", 0)
         .attr("x1", function(d) { return x(d.date); })
-        .attr("y1", function(d) { return y(d.count); })
+        .attr("y1", function(d) { return y(d.total_km); })
 		    //d3.min gets the min date from the date x-axis scale
 		    .attr("x2", function(d) { return x(d3.min(x)); })
-        .attr("y2", function(d) { return y(d.count); });
+        .attr("y2", function(d) { return y(d.total_km); });
 
+  /*
   //The vertical dashed line that appears when a circle marker is moused over
 	g.append("line")
         .attr("class", "y")
         .attr("id", "dashedLine")
         .style("stroke", "steelblue")
-        .style("stroke-width", "2px")
-        .style("stroke-dasharray", "10,5")
+        .style("stroke-dasharray", "3,3")
         .style("opacity", 0)
         .attr("x1", function(d) { return x(d.date); })
-        .attr("y1", function(d) { return y(d.count); })
+        .attr("y1", function(d) { return y(d.total_km); })
 		    .attr("x2", function(d) { return x(d.date); })
         .attr("y2", height);
-    
-   //circles are selected again to add the mouseover functions
- 	 g.selectAll("circle")
-			.on("mouseover", function(d) {		
+  */
+
+   //bars are selected again to add the mouseover functions
+ 	 g.selectAll("rect")
+			.on("mouseover", function(d) {	
+            console.log('mouseover');	
             div.transition()		
                .duration(200)		
                .style("opacity", .9);	
-            div.html(formatCount(d.count) + " km" + "<br/>" + formatTime(d.date))	
+            div.html(formatCount(d.total_km) + " changesets" + "<br/>" + formatTime(d.date))	
                .style("left", (d3.event.pageX - 20) + "px")
       		     .style("top", (d3.event.pageY + 6) + "px");
 	          //selects the horizontal dashed line in the group
@@ -265,63 +263,65 @@ var g = svg.selectAll()
                 .style("opacity", 0);	
         });
 
-svg.append("g")
+  //drawing x-axis
+  svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
 	    .selectAll(".tick text")
       .call(wrap, 35);
 
-svg.append("g")
+  /*
+  svg.append("g")
     .attr("class","xMinorAxis")
     .attr("transform", "translate(0," + height + ")")
     .style({ 'stroke': 'Black', 'fill': 'none', 'stroke-width': '1px'})
     .call(xMinorAxis)
     .selectAll("text").remove();
+  */
 
-//http://www.d3noob.org/2012/12/adding-axis-labels-to-d3js-graph.html
-svg.append("text")      // text label for the x-axis
+  //http://www.d3noob.org/2012/12/adding-axis-labels-to-d3js-graph.html
+  svg.append("text")      // text label for the x-axis
         .attr("x", width / 2 )
         .attr("y",  height + margin.bottom)
         .style("text-anchor", "middle")
         .text("Date");
 
-svg.append("text")      // text label for the y-axis
-        .attr("y",30 - margin.left)
+  svg.append("text")      // text label for the y-axis
+        .attr("y",40 - margin.left)
         .attr("x",50 - (height / 2))
         .attr("transform", "rotate(-90)")
         .style("text-anchor", "end")
         .style("font-size", "16px")
-        .text("buildings");
+        .text("changesets");
 
-//http://www.d3noob.org/2013/01/adding-title-to-your-d3js-graph.html
-svg.append("text")      // text label for chart Title
+  //http://www.d3noob.org/2013/01/adding-title-to-your-d3js-graph.html
+  svg.append("text")      // text label for chart Title
         .attr("x", width / 2 )
         .attr("y", 0 - (margin.top/2))
         .style("text-anchor", "middle")
-		.style("font-size", "16px") 
+		    .style("font-size", "16px") 
         .style("text-decoration", "underline") 
-        .text("Nyamira: Buildings");
+        .text("MapGive Changesets in 2014");
 
-
-svg.append("g")
+  svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-    //text label for the y-axis inside chart
-    /*
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .style("font-size", "16px") 
-      .style("background-color","red")
-      .text("road length (km)");
-    */
+      //text label for the y-axis inside chart
+      /*
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .style("font-size", "16px") 
+        .style("background-color","red")
+        .text("road length (km)");
+      */
 
-//http://bl.ocks.org/mbostock/7555321
-//This code wraps label text if it has too much text
-function wrap(text, width) {
+  //http://bl.ocks.org/mbostock/7555321
+  //This code wraps label text if it has too much text
+  function wrap(text, width) {
   text.each(function() {
     var text = d3.select(this),
         words = text.text().split(/\s+/).reverse(),
@@ -340,10 +340,10 @@ function wrap(text, width) {
         tspan.text(line.join(" "));
         line = [word];
         tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+        }
       }
-    }
-  });
-}
+    });
+  }
 
 });
 
