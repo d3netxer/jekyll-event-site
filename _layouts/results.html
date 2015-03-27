@@ -60,12 +60,29 @@
 <iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/users.html" width="65%" height="800" scrolling="no" style="float:none"></iframe>
 </div>
 
-<h2>Ways, Highways, Buildings</h2>
+<!--<div class='col12' style='padding-top:6px'>
+  <div style="float:left"><h2>Ways</h2></div> <div style="float:none"><h2>Highways</h2></div> <div style="float:none"><h2>Buildings</h2></div>
+</div>
+-->
+<div class='col4' style='padding-top:6px' class="results_box">
+  <div style=""><h2 style="text-align:center;">Ways</h2></div>
+  <iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.ways.schools.html" width="30%" height="350" scrolling="no" id="iframe_left" style="width:100%" class="results"></iframe>
+</div>
+<div class='col4' style='padding-top:6px' class="results_box">
+  <div style=""><h2 style="text-align:center;">Roads</h2></div>
+  <iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.highways.schools.html" width="30%" height="350" scrolling="no" id="iframe_center" style="width:100%" class="results"></iframe>
+</div>
+<div class='col4' style='padding-top:6px' class="results_box">
+  <div style=""><h2 style="text-align:center;">Buildings</h2></div>
+  <iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.buildings.schools.html" width="30%" height="350" scrolling="no" id="iframe_right" style="width:100%" class="results"></iframe>
+</div>
 
-<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.ways.schools.html" width="30%" height="350" scrolling="no" id="iframe_left" style="float:left"></iframe>
-<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.highways.schools.html" width="30%" height="350" scrolling="no" id="iframe_center" style="float:none"></iframe>
-<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.buildings.schools.html" width="30%" height="350" scrolling="no" id="iframe_right" style="float:none"></iframe>
+<!--Before
 
+<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.ways.schools.html" width="30%" height="350" scrolling="no" id="iframe_left" style="float:left" class="results"></iframe>
+<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.highways.schools.html" width="30%" height="350" scrolling="no" id="iframe_center" style="float:none" class="results"></iframe>
+<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.buildings.schools.html" width="30%" height="350" scrolling="no" id="iframe_right" style="float:none" class="results"></iframe>
+-->
 
 <div class='pad2x show-mobile'>
   <a href='#sponsors' class='button block'>Supporters</a>
