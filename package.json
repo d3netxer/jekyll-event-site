@@ -1,0 +1,26 @@
+{
+  "name": "mapoff",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "d3.js",
+  "dependencies": {
+    "gulp-concat": "^2.5.2",
+    "gulp-image-resize": "^0.6.0",
+    "gulp-foreach": "^0.1.0",
+    "gulp": "^3.8.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d3netxer/mapoff"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d3netxer/mapoff/issues"
+  },
+  "homepage": "https://github.com/d3netxer/mapoff"
+}

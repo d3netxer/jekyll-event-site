@@ -1,4 +1,5 @@
 ---
+galleryid: mapoff_gallery
 ---
 
 <!DOCTYPE html>
@@ -28,7 +29,10 @@
   <meta property='og:type' content='website' />
   <meta name='twitter:card' content='summary_large_image' />
 
-
+<!-- http://christianspecht.de/2014/03/08/generating-an-image-gallery-with-jekyll-and-lightbox2/ -->
+<script src="{{site.baseurl}}/assets/js/jquery-1.11.0.min.js"></script>
+<script src="{{site.baseurl}}/assets/js/lightbox.min.js"></script>
+<link href="{{site.baseurl}}/assets/css/lightbox.css" rel="stylesheet" />
 
   <title>{% if page.url == "/"  %}{% else %}{{page.title}} | {% endif %}{{ site.title }}</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
@@ -56,14 +60,16 @@
 
 
 <div class='col12 center ' style='padding-top:6px'><h3>Page Under Construction...</h3></div>-->
+
 <div class='col12 center ' style='padding-top:6px'>
-<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/users.html" width="65%" height="800" scrolling="no" style="float:none"></iframe>
+<iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/users2.html" width="65%" height="800" scrolling="no" style="float:none"></iframe>
 </div>
 
 <!--<div class='col12' style='padding-top:6px'>
   <div style="float:left"><h2>Ways</h2></div> <div style="float:none"><h2>Highways</h2></div> <div style="float:none"><h2>Buildings</h2></div>
 </div>
 -->
+
 <div class='col4' style='padding-top:6px' class="results_box">
   <div style=""><h2 style="text-align:center;">Ways</h2></div>
   <iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.ways.schools.html" width="30%" height="350" scrolling="no" id="iframe_left" style="width:100%" class="results"></iframe>
@@ -83,6 +89,35 @@
 <iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.highways.schools.html" width="30%" height="350" scrolling="no" id="iframe_center" style="float:none" class="results"></iframe>
 <iframe src="http://ec2-54-242-150-21.compute-1.amazonaws.com/osm-history/chart.buildings.schools.html" width="30%" height="350" scrolling="no" id="iframe_right" style="float:none" class="results"></iframe>
 -->
+
+
+
+<div class="container">
+
+{% for gallery in site.data.galleries %}
+  {% if gallery.id == page.galleryid %}
+    <h1>{{ gallery.description }}</h1>
+
+
+    <div class="image-set">
+    {% for image in gallery.images %}
+
+        <!--{{ image.text }}<br>-->
+        <a class="image-link" href="{{site.baseurl}}/img/photo_gallery/{{ image.name }}" data-lightbox="{{ gallery.id }}" title="{{ image.text }}">
+          <img src="{{site.baseurl}}/img/photo_gallery_thumbs/{{ image.thumb }}">
+        </a>
+
+    {% endfor %}
+    </div>
+
+
+
+
+  {% endif %}
+{% endfor %}
+
+</div>
+
 
 <div class='pad2x show-mobile'>
   <a href='#sponsors' class='button block'>Supporters</a>

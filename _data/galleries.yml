@@ -1,0 +1,58 @@
+- id: gallery1
+  description: This is the first gallery
+  imagefolder: /img/demopage
+  images:
+  - name: image-1.jpg
+    thumb: thumb-1.jpg
+    text: The first image
+  - name: image-2.jpg
+    thumb: thumb-2.jpg
+    text: The second image
+  - name: image-3.jpg
+    thumb: thumb-3.jpg
+    text: The third image
+- id: mapoff_gallery
+  description: MapOff Photo Gallery
+  imagefolder: /img/photo_gallery
+  images:
+  - name: gmu1487.jpg
+    thumb: gmu1487.jpg
+    text: GGS whiteboard
+  - name: IMG_20150327_185550.jpg
+    thumb: IMG_20150327_185550.jpg
+    text: group photo
+  - name: gmu1472.jpg
+    thumb: gmu1472.jpg
+    text: busy digitizing
+  - name: gmu1478.jpg
+    thumb: gmu1478.jpg
+    text: collaboration
+  - name: gmu1482.jpg
+    thumb: gmu1482.jpg
+    text: focused
+  - name: gmu1483.jpg
+    thumb: gmu1483.jpg
+    text: having fun
+  - name: gmu1607.jpg
+    thumb: gmu1607.jpg
+    text: flyers everywhere
+  - name: IMG_1881.jpg
+    thumb: IMG_1881.jpg
+    text: technical assistance
+  - name: IMG_1883.jpg
+    thumb: IMG_1883.jpg
+    text: communicating with GWU via webcam
+  - name: IMG_1884.jpg
+    thumb: IMG_1884.jpg
+    text: right side of the room
+  - name: IMG_20150327_161636.jpg
+    thumb: IMG_20150327_161636.jpg
+    text: interested mappers
+  - name: IMG_20150327_180817.jpg
+    thumb: IMG_20150327_180817.jpg
+    text: many new mappers
+  - name: gmu1480.jpg
+    thumb: gmu1480.jpg
+    text: GWU
+
+
