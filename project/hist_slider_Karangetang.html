@@ -100,8 +100,8 @@ input[type=range]::-ms-thumb {
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiaGl1IiwiYSI6InJWNGZJSzgifQ.xK1ndT3W8XL9lwVZrT6jvQ';
 
-var southWest = L.latLng(2.671523, 125.378501),
-    northEast = L.latLng(2.794293, 125.450424),
+var southWest = L.latLng(2.598, 125.315501),
+    northEast = L.latLng(2.843, 125.555424),
     bounds = L.latLngBounds(southWest, northEast);
 
 //var map = L.mapbox.map('map');
@@ -139,7 +139,9 @@ map.setMaxBounds(bounds);
 //map.minZoom(10);
 
 // zoom the map to that bounding box
-map.fitBounds(bounds);
+//map.fitBounds(bounds);
+
+map.setView([2.76, 125.4],12);
 
 clip();
 </script>
