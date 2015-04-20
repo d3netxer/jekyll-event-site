@@ -54,5 +54,11 @@
   - name: gmu1480.jpg
     thumb: gmu1480.jpg
     text: GWU
+  - name: gmu_1st_place.jpg
+    thumb: gmu_1st_place.jpg
+    text: 1st place!
+  - name: gmu_2nd_place.jpg
+    thumb: gmu_2nd_place.jpg
+    text: 2nd place!
 
 
