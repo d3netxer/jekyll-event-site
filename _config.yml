@@ -1,7 +1,7 @@
 baseurl: '/mapoff'
 permalink: pretty
 exclude: [src, CNAME]
-markdown: rdiscount
+#markdown: rdiscount
 title: MapOff
 hashtag: MapOff
 email: mapgive@state.gov
